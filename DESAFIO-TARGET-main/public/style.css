@@ -20,6 +20,7 @@ h1 {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 25px;
+    justify-content: center;
 }
 
 .card {
@@ -86,7 +87,7 @@ pre {
 }
 
 /* 🔥 RESPONSIVIDADE */
-@media (max-width: 480px) {
+@media (max-width: 400px) {
     .card {
         width: 50%;  /* agora ocupa quase toda tela no celular */
     }
