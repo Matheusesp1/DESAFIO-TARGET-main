@@ -2,109 +2,115 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title>Sistema Completo</title>
-<style>
-body { font-family: Arial; padding: 20px; background: #f4f4f4; }
-h2 { background: #333; color: white; padding: 10px; }
-section { background: white; padding: 15px; margin: 20px 0; border-radius: 8px; }
-button { padding: 8px 15px; margin-top: 10px; cursor: pointer; }
-input { padding: 5px; width: 200px; }
-</style>
+<title>Sistema Comercial - Dashboard Moderno</title>
+
+<!-- Fonte moderna -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<!-- CSS Externo -->
+<link rel="stylesheet" href="/DESAFIO-TARGET-main/public/style.css">
+
 </head>
 <body>
 
-<h1>Sistema Comercial – Comissões, Estoque e Juros</h1>
+<h1>📊 Sistema Comercial - Dashboard</h1>
 
-<!-- Comissões -->
-<section>
-<h2>1. Calcular Comissões</h2>
-<button onclick="buscarComissoes()">Calcular</button>
-<pre id="resultadoComissoes"></pre>
-</section>
+<div class="container">
 
-<!-- Estoque -->
-<section>
-<h2>2. Movimentação de Estoque</h2>
+    <!-- CARD 1 - COMISSÕES -->
+    <div class="card">
+        <h2>💰 Cálculo de Comissões</h2>
+        <button onclick="calcularComissoes()">Calcular Comissões</button>
+        <pre id="saidaComissoes">...</pre>
+    </div>
 
-<label>Código do Produto:</label><br>
-<input id="codigo" type="number"><br><br>
+    <!-- CARD 2 - ESTOQUE -->
+    <div class="card">
+        <h2>📦 Movimentar Estoque</h2>
 
-<label>Quantidade (use negativo para saída):</label><br>
-<input id="quantidade" type="number"><br><br>
+        <label>Código do Produto</label>
+        <input id="codigo" type="number">
 
-<label>Descrição:</label><br>
-<input id="descricao"><br><br>
+        <label>Quantidade (negativo = saída)</label>
+        <input id="quantidade" type="number">
 
-<button onclick="movimentar()">Movimentar</button>
-<pre id="resultadoEstoque"></pre>
-</section>
+        <label>Descrição da Movimentação</label>
+        <input id="descricao">
 
-<!-- Juros -->
-<section>
-<h2>3. Calcular Juros</h2>
+        <button onclick="movimentar()">Registrar Movimentação</button>
 
-<label>Valor:</label><br>
-<input id="valor" type="number"><br><br>
+        <pre id="saidaEstoque">...</pre>
+    </div>
 
-<label>Data de Vencimento:</label><br>
-<input id="vencimento" type="date"><br><br>
+    <!-- CARD 3 - JUROS -->
+    <div class="card">
+        <h2>📅 Cálculo de Juros</h2>
 
-<button onclick="calcularJuros()">Calcular Juros</button>
-<pre id="resultadoJuros"></pre>
-</section>
+        <label>Valor da dívida</label>
+        <input id="valor" type="number">
+
+        <label>Data de Vencimento</label>
+        <input id="vencimento" type="date">
+
+        <button onclick="calcularJuros()">Calcular Juros</button>
+
+        <pre id="saidaJuros">...</pre>
+    </div>
+</div>
 
 <script>
 const API = "http://localhost:3000";
 
-// 1 - Comissões
-function buscarComissoes() {
-  fetch(API + "/comissoes")
-    .then(res => res.json())
+// ───────── 1. COMISSÕES ─────────
+function calcularComissoes() {
+    fetch(API + "/comissoes")
+        .then(r => r.json())
+        .then(data => {
+            document.getElementById("saidaComissoes").textContent =
+                JSON.stringify(data, null, 2);
+        });
+}
+
+// ───────── 2. ESTOQUE ─────────
+function movimentar() {
+    const body = {
+        codigoProduto: Number(document.getElementById("codigo").value),
+        quantidade: Number(document.getElementById("quantidade").value),
+        descricao: document.getElementById("descricao").value
+    };
+
+    fetch(API + "/movimentar-estoque", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body)
+    })
+    .then(r => r.json())
     .then(data => {
-      document.getElementById("resultadoComissoes").textContent =
-        JSON.stringify(data, null, 2);
+        document.getElementById("saidaEstoque").textContent =
+            JSON.stringify(data, null, 2);
     });
 }
 
-// 2 - Estoque
-function movimentar() {
-  const body = {
-    codigoProduto: Number(document.getElementById("codigo").value),
-    quantidade: Number(document.getElementById("quantidade").value),
-    descricao: document.getElementById("descricao").value
-  };
-
-  fetch(API + "/movimentar-estoque", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(body)
-  })
-  .then(res => res.json())
-  .then(data => {
-    document.getElementById("resultadoEstoque").textContent =
-      JSON.stringify(data, null, 2);
-  });
-}
-
-// 3 - Juros
+// ───────── 3. JUROS ─────────
 function calcularJuros() {
-  const body = {
-    valor: Number(document.getElementById("valor").value),
-    dataVencimento: document.getElementById("vencimento").value
-  };
+    const body = {
+        valor: Number(document.getElementById("valor").value),
+        dataVencimento: document.getElementById("vencimento").value
+    };
 
-  fetch(API + "/juros", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(body)
-  })
-  .then(res => res.json())
-  .then(data => {
-    document.getElementById("resultadoJuros").textContent =
-      JSON.stringify(data, null, 2);
-  });
+    fetch(API + "/juros", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body)
+    })
+    .then(r => r.json())
+    .then(data => {
+        document.getElementById("saidaJuros").textContent =
+            JSON.stringify(data, null, 2);
+    });
 }
 </script>
 
 </body>
 </html>
+
