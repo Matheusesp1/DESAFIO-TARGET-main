@@ -2,15 +2,15 @@
   "name": "desafio-target-main",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "API/server.js",
+  "type": "commonjs",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "[my-framework] build --output public"
+    "start": "node API/server.js",
+     "build": "node build --output public"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^5.2.1"
