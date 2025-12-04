@@ -83,3 +83,10 @@ pre {
     overflow-y: auto;
     border-left: 4px solid #4e73df;
 }
+
+/* 🔥 RESPONSIVIDADE */
+@media (max-width: 480px) {
+    .card {
+        width: 100%;  /* agora ocupa quase toda tela no celular */
+    }
+}
