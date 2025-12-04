@@ -12,5 +12,6 @@ Um programa que leia os dados e calcule a comissão de cada vendedor, seguindo r
 
 "Descubra o valor atualizado de dívidas vencidas com apenas alguns cliques."
 
-<img width="1909" height="753" alt="image" src="https://github.com/user-attachments/assets/8f456515-4d93-4c83-984f-8d3cab3f48e7" />
 
+
+<img width="1735" height="725" alt="image" src="https://github.com/user-attachments/assets/15109816-a298-4ebd-a522-94a04cd1c429" />
