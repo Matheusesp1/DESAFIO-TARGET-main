@@ -28,6 +28,7 @@ h1 {
     border-radius: 15px;
     box-shadow: 0px 4px 20px rgba(0,0,0,0.06);
     transition: 0.3s;
+    justify-content: center;
 }
 .card:hover {
     transform: translateY(-5px);
@@ -87,6 +88,6 @@ pre {
 /* 🔥 RESPONSIVIDADE */
 @media (max-width: 480px) {
     .card {
-        width: 100%;  /* agora ocupa quase toda tela no celular */
+        width: 50%;  /* agora ocupa quase toda tela no celular */
     }
 }
