@@ -15,7 +15,7 @@ Um programa que leia os dados e calcule a comissão de cada vendedor, seguindo r
 
 link do vercel > https://desafio-target-main-63xx.vercel.app/
 
-Para rodar a API do projeto > node server.js
+Precisa do comando : node server.js para rodar a API do projeto 
 
 <img width="1706" height="677" alt="image" src="https://github.com/user-attachments/assets/f4a93f29-b364-4fef-99d5-aaa8bca1c155" />
 
