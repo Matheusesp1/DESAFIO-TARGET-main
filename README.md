@@ -14,4 +14,5 @@ Um programa que leia os dados e calcule a comissão de cada vendedor, seguindo r
 
 
 
-<img width="1735" height="725" alt="image" src="https://github.com/user-attachments/assets/15109816-a298-4ebd-a522-94a04cd1c429" />
+<img width="1706" height="677" alt="image" src="https://github.com/user-attachments/assets/f12ffdc9-11f1-4dfb-8302-d4e6dc133d61" />
+
