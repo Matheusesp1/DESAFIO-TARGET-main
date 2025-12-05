@@ -18,7 +18,7 @@ h1 {
     max-width: 1100px;
     margin: auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(350px, 0.5fr));
     gap: 25px;
     justify-content: center;
 }
@@ -86,9 +86,12 @@ pre {
     border-left: 4px solid #4e73df;
 }
 
-/* 🔥 RESPONSIVIDADE */
-@media (max-width: 400px) {
+/* 🔥 RESPONSIVIDADE MOBILE */
+@media (max-width: 1000px) {
+    .container {
+        grid-template-columns: 1fr !important; /* força apenas 1 coluna */
+    }
     .card {
-        width: 50%;  /* agora ocupa quase toda tela no celular */
+        width: 100%;
     }
 }
