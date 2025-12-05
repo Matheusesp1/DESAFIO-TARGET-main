@@ -1,9 +1,13 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
     font-family: 'Poppins', sans-serif;
-    background: #eef2f7;
+    background: radial-gradient(circle at 50% 80%, #494c53);
+    background-attachment: fixed;
+    color: #f2f2f2;
     padding: 30px;
-    color: #333;
+
+    /* ✨ Efeito 3D leve */
+    perspective: 1000px;
 }
 
 h1 {
@@ -11,7 +15,8 @@ h1 {
     margin-bottom: 30px;
     font-size: 32px;
     font-weight: 600;
-    color: #222;
+    color: whitesmoke;
+    margin: 50px;
 }
 
 .container {
@@ -25,22 +30,31 @@ h1 {
 
 .card {
     background: white;
-    padding: 25px;
+    backdrop-filter: blur(12px);
     border-radius: 15px;
-    box-shadow: 0px 4px 20px rgba(0,0,0,0.06);
-    transition: 0.3s;
-    justify-content: center;
+    padding: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    /* Sombra 3D */
+    box-shadow: 0px 15px 40px rgba(228, 226, 226, 0.4);
+
+    /* efeito 3D suave */
+    transform-style: preserve-3d;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
+
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0px 6px 25px rgba(0,0,0,0.12);
+    transform: translateY(-8px) translateZ(20px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.6);
 }
+
+
 
 h2 {
     font-size: 22px;
     margin-bottom: 15px;
-    color: #444;
-    border-left: 4px solid #4e73df;
+    color: black;
+    border-left: 4px solid white;
     padding-left: 10px;
 }
 
@@ -48,6 +62,7 @@ label {
     display: block;
     margin: 10px 0 5px;
     font-weight: 500;
+    color: black;
 }
 
 input {
@@ -62,7 +77,7 @@ input {
 button {
     width: 100%;
     padding: 12px;
-    background: #4e73df;
+    background: linear-gradient(135deg, #0d0d0e);
     border: none;
     border-radius: 8px;
     color: white;
@@ -71,8 +86,9 @@ button {
     cursor: pointer;
     transition: 0.2s;
 }
+
 button:hover {
-    background: #3657c9;
+    background: linear-gradient(135deg,  #0d0d0e);
 }
 
 pre {
@@ -83,7 +99,11 @@ pre {
     font-size: 13px;
     max-height: 220px;
     overflow-y: auto;
-    border-left: 4px solid #4e73df;
+    border-left: 4px solid #070707;
+}
+
+.resultado{
+    color: black;
 }
 
 /* 🔥 RESPONSIVIDADE MOBILE */
