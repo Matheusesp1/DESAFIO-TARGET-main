@@ -12,7 +12,7 @@ Um programa que leia os dados e calcule a comissão de cada vendedor, seguindo r
 
 "Descubra o valor atualizado de dívidas vencidas com apenas alguns cliques."
 
-
+link do vercel > https://desafio-target-main-63xx.vercel.app/
 
 <img width="1706" height="677" alt="image" src="https://github.com/user-attachments/assets/f12ffdc9-11f1-4dfb-8302-d4e6dc133d61" />
 
